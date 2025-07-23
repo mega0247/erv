@@ -1,3 +1,7 @@
-"scripts": {
-  "build:sitemap": "node generate-sitemap.js"
+{
+  "name": "erv",
+  "version": "1.0.0",
+  "scripts": {
+    "build:sitemap": "node generate-sitemap.js"
+  }
 }
