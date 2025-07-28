@@ -9,59 +9,70 @@
   <meta name="description" content="Review the Privacy Policy of Earth Blue Relocation. Learn how we handle your data and privacy online.">
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Earth Blue Relocation" />
-  <meta name="keywords" content="privacy, Earth Blue Relocation, data protection, personal information, logistics privacy policy" />
   <meta property="og:title" content="Privacy Policy - Earth Blue Relocation" />
   <meta property="og:description" content="How we protect and manage your personal information online." />
   <meta property="og:image" content="https://i.imgur.com/UCugV24.png" />
   <meta property="og:url" content="https://wildeweswoolery.com/privacy.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    .policy-header {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    .policy-header img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.4);
+    }
+    .policy-header .title-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .policy-header h1 {
+      font-size: 2.5rem;
       margin: 0;
-      padding: 0;
-      color: #333;
-      background-color: #fff;
+    }
+    .policy-content {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+    }
+    .policy-content h2 {
+      color: #004aad;
+      margin-top: 40px;
     }
 
-    header.site-header {
-      background-color: #f8f8f8;
-      border-bottom: 1px solid #ccc;
-    }
-
+    /* NEW STYLES ADDED */
     .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 10px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
     }
-
     .logo {
-  height: 60px;
-  width: auto;
-  max-width: 180px;
-  object-fit: contain;
-}
+      height: 60px;
+      width: auto;
+      max-width: 180px;
+    }
     .quick-buttons {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
-      margin: 10px 0;
+      margin-left: 20px;
     }
-
     .quick-buttons a {
       background-color: #0548a0;
       color: white;
-      padding: 8px 12px;
+      padding: 6px 12px;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
       font-weight: bold;
     }
-
     nav.main-nav ul {
       list-style: none;
       display: flex;
@@ -69,63 +80,19 @@
       padding: 0;
       margin: 0;
     }
-
-    nav.main-nav a {
+    nav.main-nav ul li a {
       text-decoration: none;
       color: #0548a0;
       font-weight: bold;
     }
-
-    .policy-header {
-      width: 100%;
-      display: block;
-      max-height: 300px;
-      object-fit: cover;
-    }
-
-    .center-title {
-      text-align: center;
-      padding: 40px 20px 10px;
-    }
-
-    .center-title h4 {
-      color: #d32f2f;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .center-title h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .policy-content {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.7;
-    }
-
-    .policy-content h2 {
-      color: #004aad;
-      margin-top: 40px;
-    }
-
     @media screen and (max-width: 768px) {
       .header-container {
         flex-direction: column;
         align-items: flex-start;
       }
-
-      nav.main-nav ul {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-      }
-
       .quick-buttons {
         margin-top: 10px;
+        flex-wrap: wrap;
       }
     }
   </style>
@@ -134,18 +101,19 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <div class="header-container">
-      <img src="https://i.imgur.com/UCugV24.png" class="logo" style="height: 60px; width: auto; max-width: 180px;">
-      
+    <div class="container header-container">
+      <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" />
+
+      <!-- NEW BUTTONS -->
       <div class="quick-buttons">
-        <a href="/#contact">Freight Rate</a>
-        <a href="/#contact">Auto shipping rate</a>
-        <a href="/#contact">Call Us</a>
+        <a href="index.html#contact">Freight Rate</a>
+        <a href="index.html#contact">Auto shipping rate</a>
+        <a href="index.html#contact">Call Us</a>
       </div>
-      
+
       <nav class="main-nav">
         <ul>
-          <li><a href="/">Home</a></li>
+          <li><a href="index">Home</a></li>
           <li><a href="about">About</a></li>
           <li><a href="services">Services</a></li>
           <li><a href="contact">Contact</a></li>
@@ -153,12 +121,12 @@
       </nav>
     </div>
   </header>
-  
 
   <!-- HEADER IMAGE -->
   <section class="policy-header">
     <img src="https://i.imgur.com/SQE1IHM.png" alt="Privacy Banner" />
     <div class="title-overlay">
+      <h1>Privacy Policy</h1>
     </div>
   </section>
 
