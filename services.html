@@ -77,6 +77,33 @@
       font-weight: bold;
       font-size: 1.1rem;
     }
+    .quick-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .quick-buttons a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0548a0;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: background-color 0.3s;
+    }
+    .quick-buttons a:hover {
+      background-color: #003f8a;
+    }
+    .quick-buttons img {
+      width: 20px;
+      height: 20px;
+    }
     @media (max-width: 768px) {
       .split-section,
       .two-column {
@@ -90,7 +117,7 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-container">
-     <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
+      <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
       <nav class="main-nav">
         <ul>
           <li><a href="/">Home</a></li>
@@ -99,6 +126,11 @@
           <li><a href="contact">Contact</a></li>
         </ul>
       </nav>
+    </div>
+    <div class="quick-buttons">
+      <a href="/#contact"><img src="https://i.imgur.com/vUdcU1E.png" alt="Icon">Freight Rate</a>
+      <a href="/#contact"><img src="https://i.imgur.com/XVZLOSE.png" alt="Icon">Auto shipping rate</a>
+      <a href="/#contact"><img src="https://i.imgur.com/Ph0i6mB.png" alt="Icon">Call Us</a>
     </div>
   </header>
 
