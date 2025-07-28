@@ -1,4 +1,4 @@
-br<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,6 +15,40 @@ br<!DOCTYPE html>
   <meta property="og:url" content="https://wildeweswoolery.com/privacy.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <style>
+    .site-header {
+      background-color: #fff;
+      padding: 15px 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1000;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .header-container .logo {
+      height: 90px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    .main-nav ul li a {
+      text-decoration: none;
+      color: #0548a0;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
     .policy-header {
       position: relative;
       text-align: center;
@@ -36,6 +70,7 @@ br<!DOCTYPE html>
       font-size: 2.5rem;
       margin: 0;
     }
+
     .policy-content {
       max-width: 900px;
       margin: 60px auto;
@@ -45,6 +80,16 @@ br<!DOCTYPE html>
     .policy-content h2 {
       color: #004aad;
       margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      .header-container {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
