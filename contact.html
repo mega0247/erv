@@ -77,6 +77,59 @@
       border: none;
       border-radius: 10px;
     }
+
+    .quick-buttons {
+      display: flex;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .quick-buttons a {
+      background-color: #0548a0;
+      color: white;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 10px 20px;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+    }
+
+    @media screen and (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .quick-buttons {
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -84,7 +137,16 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-container">
-    <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
+      <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
+      
+      <!-- Quick Buttons -->
+      <div class="quick-buttons">
+        <a href="/#contact">Freight Rate</a>
+        <a href="/#contact">Auto shipping rate</a>
+        <a href="/#contact">Call Us</a>
+      </div>
+      
+      <!-- Navigation -->
       <nav class="main-nav">
         <ul>
           <li><a href="/">Home</a></li>
