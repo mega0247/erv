@@ -2,20 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Services | Earth Blue Relocation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earth Blue Relocation</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="canonical" href="https://wildeweswoolery.com/services" />
-  <meta name="description" content="Explore Earth Blue Relocation's full range of services including freight, auto shipping, residential moving, and international logistics.">
-  <meta name="keywords" content="Earth Blue Relocation services, freight, auto shipping, logistics, moving company, transport">
+  <link rel="canonical" href="https://earthbluerelocation.com/" />
+  <meta name="description" content="Earth Blue Relocation - Professional Moving Services with Global Reach. Safe, experienced, and reliable moving and logistics solutions.">
+  <meta name="keywords" content="moving services, relocation, logistics, Earth Blue, freight, warehouse">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Earth Blue Relocation">
-  <meta property="og:title" content="Services | Earth Blue Relocation">
-  <meta property="og:description" content="Explore Earth Blue Relocation’s expert services in logistics, freight, and moving solutions.">
+  <meta property="og:title" content="Earth Blue Relocation">
+  <meta property="og:description" content="Reliable moving services with global reach.">
   <meta property="og:image" content="https://i.imgur.com/UCugV24.png">
-  <meta property="og:url" content="https://wildeweswoolery.com/services">
+  <meta property="og:url" content="https://earthbluerelocation.com/">
   <meta name="twitter:card" content="summary_large_image">
   <style>
+    .hero-image {
+      background: url('https://i.imgur.com/Cja2HlT.jpeg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+    .hero-image h1 {
+      font-size: 2.5rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .split-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+      gap: 40px;
+      align-items: center;
+    }
+    .split-section .image,
+    .split-section .text {
+      flex: 1 1 400px;
+    }
+    .split-section .image img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .text h2 {
+      margin-bottom: 20px;
+      color: #0548a0;
+    }
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+      gap: 40px;
+    }
+    .two-column .left,
+    .two-column .right {
+      flex: 1 1 400px;
+    }
+    .quote {
+      background-color: #f8f8f8;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+    .quote .author {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .site-header {
+      background-color: #fff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 90px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: #0548a0;
+      font-weight: bold;
+    }
+
     .quick-buttons {
       display: flex;
       gap: 10px;
@@ -32,41 +127,20 @@
       font-weight: bold;
     }
 
-    .main-nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .main-nav a {
-      text-decoration: none;
-      color: #0548a0;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    .logo {
-      height: 90px;
-      max-width: 100%;
-      object-fit: contain;
-    }
-
     @media screen and (max-width: 768px) {
       .quick-buttons {
         flex-wrap: wrap;
         margin-top: 10px;
       }
 
-      .main-nav ul {
+      .header-container {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .container.header-container {
+      .main-nav ul {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 10px;
       }
     }
   </style>
@@ -75,9 +149,9 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <div class="container header-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-      <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
-
+    <div class="container header-container">
+      <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" />
+      
       <!-- Quick Buttons -->
       <div class="quick-buttons">
         <a href="/#contact">Freight Rate</a>
@@ -85,7 +159,6 @@
         <a href="/#contact">Call Us</a>
       </div>
 
-      <!-- Navigation -->
       <nav class="main-nav">
         <ul>
           <li><a href="/">Home</a></li>
@@ -96,7 +169,6 @@
       </nav>
     </div>
   </header>
-
 
   <!-- HERO IMAGE WITH CENTERED TEXT -->
   <section class="hero-image">
