@@ -93,6 +93,37 @@
       margin-top: 20px;
     }
 
+    .quick-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: #f0f0f0;
+      flex-wrap: wrap;
+    }
+
+    .quick-buttons a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      text-decoration: none;
+      background-color: #0548a0;
+      color: white;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+      font-weight: bold;
+    }
+
+    .quick-buttons a:hover {
+      background-color: #022d60;
+    }
+
+    .quick-buttons img {
+      height: 20px;
+      width: 20px;
+    }
+
     @media screen and (max-width: 768px) {
       .section-split {
         flex-direction: column;
@@ -115,7 +146,15 @@
         </ul>
       </nav>
     </div>
+
+    <div class="quick-buttons">
+      <a href="#contact"><img src="https://i.imgur.com/vUdcU1E.png" alt="Icon">Freight Rate</a>
+      <a href="#contact"><img src="https://i.imgur.com/XVZLOSE.png" alt="Icon">Auto shipping rate</a>
+      <a href="#contact"><img src="https://i.imgur.com/Ph0i6mB.png" alt="Icon">Call Us</a>
+    </div>
   </header>
+</body>
+</html>
 
   <!-- STATIC HEADER IMAGE -->
   <img src="https://i.imgur.com/zOzHbex.png" alt="About Us Banner" class="static-header" />
