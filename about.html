@@ -16,30 +16,29 @@
   <meta property="og:url" content="https://wildeweswoolery.com/about">
   <meta name="twitter:card" content="summary_large_image">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     .static-header {
       width: 100%;
       display: block;
       max-height: 400px;
       object-fit: cover;
     }
-
     .center-title {
       text-align: center;
       padding: 40px 20px 10px;
     }
-
     .center-title h4 {
       color: #d32f2f;
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
-
     .center-title h1 {
       font-size: 2.5rem;
       font-weight: bold;
       margin: 0;
     }
-
     .section-split {
       display: flex;
       flex-wrap: wrap;
@@ -48,91 +47,73 @@
       padding: 60px 20px;
       background-color: #f8f8f8;
     }
-
     .section-split .image {
       flex: 1 1 400px;
       max-width: 500px;
     }
-
     .section-split .image img {
       width: 100%;
       height: auto;
       border-radius: 10px;
     }
-
     .section-split .text {
       flex: 1 1 400px;
       max-width: 600px;
     }
-
     .section-split .text h2 {
       font-size: 2rem;
       margin-bottom: 20px;
       color: #0548a0;
     }
-
     .section-split .text p {
       font-size: 1.1rem;
       line-height: 1.6;
     }
-
     .image-block {
       width: 100%;
       text-align: center;
       padding: 40px 20px;
     }
-
     .image-block img {
       max-width: 100%;
       height: auto;
       border-radius: 10px;
     }
-
     .image-block p {
       font-size: 1.1rem;
       margin-top: 20px;
     }
-
-    .quick-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 15px 10px;
-      background-color: #0548a0;
-      flex-wrap: wrap;
-    }
-
-    .quick-buttons a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      text-decoration: none;
-      background-color: #ffffff;
-      color: #0548a0;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .quick-buttons a:hover {
-      background-color: #e0e0e0;
-    }
-
-    .quick-buttons img {
-      height: 20px;
-      width: 20px;
-    }
-
     @media screen and (max-width: 768px) {
       .section-split {
         flex-direction: column;
       }
+    }
 
-      .quick-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
+    .quick-buttons {
+      display: flex;
+      gap: 15px;
+      margin-left: 20px;
+    }
+    .quick-buttons a {
+      display: flex;
+      align-items: center;
+      background-color: #1e5ea1;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+    .quick-buttons a img {
+      height: 20px;
+      margin-right: 8px;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
   </style>
 </head>
@@ -141,7 +122,14 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-container">
-      <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
+      <div style="display: flex; align-items: center;">
+        <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
+        <div class="quick-buttons">
+          <a href="#contact"><img src="https://i.imgur.com/vUdcU1E.png" alt="Icon">Freight Rate</a>
+          <a href="#contact"><img src="https://i.imgur.com/XVZLOSE.png" alt="Icon">Auto shipping rate</a>
+          <a href="#contact"><img src="https://i.imgur.com/Ph0i6mB.png" alt="Icon">Call Us</a>
+        </div>
+      </div>
       <nav class="main-nav">
         <ul>
           <li><a href="/">Home</a></li>
@@ -151,14 +139,40 @@
         </ul>
       </nav>
     </div>
-
-    <!-- Quick Buttons Inside Header -->
-    <div class="quick-buttons">
-      <a href="#contact"><img src="https://i.imgur.com/vUdcU1E.png" alt="Icon">Freight Rate</a>
-      <a href="#contact"><img src="https://i.imgur.com/XVZLOSE.png" alt="Icon">Auto shipping rate</a>
-      <a href="#contact"><img src="https://i.imgur.com/Ph0i6mB.png" alt="Icon">Call Us</a>
-    </div>
   </header>
+
+  <!-- HERO / TITLE -->
+  <img src="https://i.imgur.com/SQE1IHM.png" alt="About Earth Blue Relocation" class="static-header" />
+  <div class="center-title">
+    <h4>Who We Are</h4>
+    <h1>About Earth Blue Relocation</h1>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section class="section-split">
+    <div class="image">
+      <img src="https://i.imgur.com/wTxTnkC.png" alt="Our History" />
+    </div>
+    <div class="text">
+      <h2>Our Mission & Values</h2>
+      <p>At Earth Blue Relocation, our mission is to provide seamless logistics solutions while maintaining the highest level of customer satisfaction. We believe in transparency, commitment, and going the extra mile to ensure every move is successful.</p>
+    </div>
+  </section>
+
+  <!-- IMAGE BLOCK -->
+  <section class="image-block">
+    <img src="https://i.imgur.com/3Yqtqz4.png" alt="Team at Earth Blue Relocation" />
+    <p>Our team is composed of seasoned professionals dedicated to excellence in moving, shipping, and warehousing.</p>
+  </section>
+
+  <!-- Another IMAGE BLOCK -->
+  <section class="image-block">
+    <img src="https://i.imgur.com/Nn7PjKd.png" alt="Fleet and Logistics" />
+    <p>With our modern fleet and logistics infrastructure, we guarantee efficiency, safety, and timeliness across every project we handle.</p>
+  </section>
+
+  <!-- CONTACT SECTION ANCHOR -->
+  <section id="contact"></section> <!-- This ensures smooth scroll target -->
 
 </body>
 </html>
