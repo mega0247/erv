@@ -15,6 +15,9 @@
   <meta property="og:image" content="https://i.imgur.com/UCugV24.png">
   <meta property="og:url" content="https://wildeweswoolery.com/contact">
   <meta name="twitter:card" content="summary_large_image">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-select@latest"></script>
+  <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
   <style>
     .hero-contact {
       position: relative;
@@ -127,8 +130,6 @@
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-container">
       <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
@@ -147,8 +148,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- HERO IMAGE -->
   <section class="hero-contact">
     <img src="https://i.imgur.com/W5JXwGS.png" alt="Contact Hero Image">
     <div class="overlay">
@@ -156,8 +155,6 @@
       <p>We’re here to help you and answer any questions you may have.</p>
     </div>
   </section>
-
-  <!-- INFO SECTION -->
   <section class="info-section">
     <h1>Ship with Us</h1>
     <p>We handle all your international transportation needs with responsibility and professionalism.</p>
@@ -170,13 +167,13 @@
     <h3>CAREER OPPORTUNITIES</h3>
     <p>Interested in joining the Earth Blue Relocation team? Explore our exciting career opportunities.</p>
   </section>
-
-  <!-- IMAGE -->
   <div style="text-align:center; padding: 20px;">
     <img src="https://i.imgur.com/lhUMPaN.png" alt="Contact Us Banner" style="width:100%; max-width:1000px; border-radius:10px;" />
   </div>
-
-  <!-- ADDRESS SECTION -->
+  <div id="app" style="padding: 20px; text-align:center">
+    <v-select v-model="selectedRegion" :options="regions" placeholder="Select a region"></v-select>
+    <v-select v-model="selectedCity" :options="filteredCities" placeholder="Select a city" style="margin-top:10px"></v-select>
+  </div>
   <section class="address-grid">
     <div class="address-box">
       <h3>Corporate Office - California</h3>
@@ -195,109 +192,9 @@
       <p>Calle 77B No 57-103 Office 701<br>Barranquilla, Colombia<br>Ethics Line Colombia</p>
     </div>
   </section>
-
-    <!-- REGION & CITY FILTER SECTION -->
-  <div id="location-app" class="info-section" style="background: #fff;">
-    <div class="container">
-      <h2 style="margin-bottom: 20px;">Find Our U.S. Locations</h2>
-
-      <div class="contact-locations__filters" style="margin-bottom: 30px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-          <select v-model="activeRegion" class="contact-select" aria-label="Search team by region">
-            <option value="">All Regions</option>
-            <option v-for="region in availableRegions" :key="region" :value="region">{{ region }}</option>
-          </select>
-
-          <select v-model="activeCity" class="contact-select" aria-label="Search team by city">
-            <option value="">All Cities</option>
-            <option v-for="city in availableCities" :key="city" :value="city">{{ city }}</option>
-          </select>
-        </div>
-      </div>
-
-      <div v-for="(group, region) in filteredLocations" :key="region" class="address-grid">
-        <div class="address-box" v-for="loc in group" :key="loc.city">
-          <h3>{{ loc.city }}</h3>
-          <p v-html="loc.address"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Vue and Script Section -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script>
-    new Vue({
-      el: '#location-app',
-      data: {
-        activeRegion: '',
-        activeCity: '',
-        locations: {
-          'West Coast': [
-            { city: 'Los Angeles', address: '8731 Pioneer Blvd<br>Santa Fe Springs, CA 90670' },
-            { city: 'San Francisco', address: '123 Market St<br>San Francisco, CA 94103' }
-          ],
-          'East Coast': [
-            { city: 'New York', address: '500 5th Ave<br>New York, NY 10036' },
-            { city: 'Miami', address: '6500 N Powerline Rd<br>Pompano Beach, FL 33073' }
-          ],
-          'Midwest': [
-            { city: 'Chicago', address: '200 W Madison St<br>Chicago, IL 60606' }
-          ]
-        }
-      },
-      computed: {
-        availableRegions() {
-          return Object.keys(this.locations);
-        },
-        availableCities() {
-          const allCities = [];
-          for (const region in this.locations) {
-            for (const loc of this.locations[region]) {
-              if (!this.activeRegion || region === this.activeRegion) {
-                allCities.push(loc.city);
-              }
-            }
-          }
-          return allCities;
-        },
-        filteredLocations() {
-          const filtered = {};
-          for (const [region, locs] of Object.entries(this.locations)) {
-            if (this.activeRegion && region !== this.activeRegion) continue;
-            const matches = locs.filter(loc => !this.activeCity || loc.city === this.activeCity);
-            if (matches.length) filtered[region] = matches;
-          }
-          return filtered;
-        }
-      }
-    });
-  </script>
-
-  <style>
-    .contact-select {
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      min-width: 200px;
-    }
-
-    .contact-locations__filters {
-      margin-bottom: 20px;
-    }
-
-    .address-grid {
-      margin-top: 20px;
-    }
-  </style>
-
-  <!-- MAP SECTION -->
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13264.57332670549!2d-118.07949239999999!3d33.94723545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2cb08e3a9f4b%3A0x3e1173c1e8b89f2e!2s8731%20Pioneer%20Blvd%2C%20Santa%20Fe%20Springs%2C%20CA%2090670!5e0!3m2!1sen!2sus!4v1628233085681!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13264.57332670549!2d-118.07949239999999!3d33.94723545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2cb08e3a9f4b%3A0x3e1173c1e8b89f2e!2s8731%20Pioneer%20Blvd%2C%20Santa%20Fe%20Springs%2C%20CA%2090670!5e0!3m2!1sen!2us!4v1628233085681!5m2!1sen!2us" allowfullscreen="" loading="lazy"></iframe>
   </div>
-
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <p>All liabilities pertaining to the transportation of goods are the sole responsibility of the motor carrier, and they are legally bound in the event of any accidents or claims.</p>
@@ -307,6 +204,26 @@
       </p>
     </div>
   </footer>
-
+  <script>
+    new Vue({
+      el: '#app',
+      components: { 'v-select': VueSelect.VueSelect },
+      data: {
+        regions: ['California', 'Florida', 'Texas'],
+        citiesByRegion: {
+          California: ['Los Angeles', 'San Diego'],
+          Florida: ['Miami', 'Orlando'],
+          Texas: ['Dallas', 'Houston']
+        },
+        selectedRegion: null,
+        selectedCity: null
+      },
+      computed: {
+        filteredCities() {
+          return this.selectedRegion ? this.citiesByRegion[this.selectedRegion] : [];
+        }
+      }
+    });
+  </script>
 </body>
 </html>
