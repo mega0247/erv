@@ -77,13 +77,11 @@
       border: none;
       border-radius: 10px;
     }
-
     .quick-buttons {
       display: flex;
       gap: 10px;
       margin-left: 20px;
     }
-
     .quick-buttons a {
       background-color: #0548a0;
       color: white;
@@ -93,7 +91,6 @@
       font-size: 0.9rem;
       font-weight: bold;
     }
-
     .header-container {
       display: flex;
       align-items: center;
@@ -101,7 +98,6 @@
       flex-wrap: wrap;
       padding: 10px 20px;
     }
-
     .main-nav ul {
       list-style: none;
       display: flex;
@@ -109,13 +105,11 @@
       padding: 0;
       margin: 0;
     }
-
     .main-nav a {
       text-decoration: none;
       font-weight: bold;
       color: #333;
     }
-
     @media screen and (max-width: 768px) {
       .header-container {
         flex-direction: column;
@@ -129,43 +123,6 @@
         flex-direction: column;
         gap: 10px;
       }
-    }
-
-    /* Dropdown Section Styling */
-    .module-contact-locations-content {
-      background-color: #d7f2fb;
-      padding: 40px 20px;
-    }
-    .contact-locations__filters {
-      margin-bottom: 30px;
-    }
-    .row-2-cols {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .col {
-      flex: 1 1 300px;
-      max-width: 400px;
-    }
-    select-dropdown {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: 5px;
-      background-color: #226f3c;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
-    select-dropdown::after {
-      content: '▼';
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
     }
   </style>
 </head>
@@ -239,35 +196,43 @@
     </div>
   </section>
 
-<!-- DROPDOWN FILTER SECTION -->
-<section class="module-contact-locations-content" aria-label="All our locations">
-  <div class="container">
-    <div class="contact-locations__filters">
-      <div class="row row-2-cols">
-        <div class="col">
-          <label for="region-select" style="font-weight:bold; display:block; margin-bottom:5px;">Select Region:</label>
-          <select id="region-select" name="filter-region" class="contact-select" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem;">
-            <option value="">All Regions</option>
-            <option value="california">California</option>
-            <option value="florida">Florida</option>
-            <option value="canada">Canada</option>
-            <option value="colombia">Colombia</option>
-          </select>
-        </div>
-        <div class="col">
-          <label for="city-select" style="font-weight:bold; display:block; margin-bottom:5px;">Select City:</label>
-          <select id="city-select" name="filter-city" class="contact-select" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem;">
-            <option value="">All Cities</option>
-            <option value="los-angeles">Los Angeles</option>
-            <option value="miami">Miami</option>
-            <option value="brampton">Brampton</option>
-            <option value="barranquilla">Barranquilla</option>
-          </select>
+  <!-- LOCATION FILTER DROPDOWNS -->
+  <section class="module-contact-locations-content" aria-label="All our locations">
+    <div class="container">
+      <div id="app" class="contact-locations">
+        <div class="contact-locations__filters">
+          <div class="row row-2-cols">
+            <div class="col">
+              <select-dropdown
+                :options="availableFilterOptions('region')"
+                :last-filter="lastFilter"
+                name="filter-region"
+                id="filter-region"
+                css-class="contact-select"
+                title="All Regions"
+                aria-label="Search team by region"
+                v-model="activeFilters.region"
+                v-on:update:last-filter="lastFilter = 'region'">
+              </select-dropdown>
+            </div>
+            <div class="col">
+              <select-dropdown
+                :options="availableFilterOptions('city')"
+                :last-filter="lastFilter"
+                name="filter-city"
+                id="filter-city"
+                css-class="contact-select"
+                title="All Cities"
+                aria-label="Search team by city"
+                v-model="activeFilters.city"
+                v-on:update:last-filter="lastFilter = 'city'">
+              </select-dropdown>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- MAP SECTION -->
   <div class="map-container">
