@@ -239,13 +239,14 @@
     </div>
   </section>
 
-<!-- FILTER DROPDOWN SECTION -->
+<!-- DROPDOWN FILTER SECTION -->
 <section class="module-contact-locations-content" aria-label="All our locations">
   <div class="container">
     <div class="contact-locations__filters">
       <div class="row row-2-cols">
         <div class="col">
-          <select name="filter-region" class="contact-select">
+          <label for="region-select" style="font-weight:bold; display:block; margin-bottom:5px;">Select Region:</label>
+          <select id="region-select" name="filter-region" class="contact-select" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem;">
             <option value="">All Regions</option>
             <option value="california">California</option>
             <option value="florida">Florida</option>
@@ -254,7 +255,8 @@
           </select>
         </div>
         <div class="col">
-          <select name="filter-city" class="contact-select">
+          <label for="city-select" style="font-weight:bold; display:block; margin-bottom:5px;">Select City:</label>
+          <select id="city-select" name="filter-city" class="contact-select" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem;">
             <option value="">All Cities</option>
             <option value="los-angeles">Los Angeles</option>
             <option value="miami">Miami</option>
