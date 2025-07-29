@@ -16,106 +16,83 @@
   <meta property="og:url" content="https://earthbluerelocation.com/">
   <meta name="twitter:card" content="summary_large_image">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+    html {
+      scroll-behavior: smooth;
     }
-
-    .site-header {
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-      padding: 10px 20px;
-    }
-
     .header-container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: auto;
+      justify-content: space-between;
       flex-wrap: wrap;
     }
-
-    .logo {
-      height: 80px;
+    .logo-button-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .logo-button-group img.logo {
+      height: 90px;
+      max-width: 100%;
       object-fit: contain;
     }
-
     .quick-buttons {
       display: flex;
-      gap: 12px;
-      justify-content: center;
-      align-items: center;
+      gap: 15px;
     }
-
     .quick-buttons a {
       display: flex;
       align-items: center;
-      background-color: #004aad;
+      background-color: #1e5ea1;
       color: #fff;
-      padding: 8px 14px;
-      border-radius: 8px;
+      padding: 10px 15px;
+      border-radius: 10px;
       text-decoration: none;
-      font-size: 0.9rem;
       font-weight: bold;
+      font-size: 0.95rem;
     }
-
     .quick-buttons a img {
-      height: 18px;
-      margin-right: 6px;
+      height: 20px;
+      margin-right: 8px;
     }
-
     .main-nav ul {
-      list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 30px;
+      list-style: none;
       margin: 0;
       padding: 0;
     }
-
-    .main-nav a {
+    .main-nav ul li a {
       text-decoration: none;
-      color: #004aad;
       font-weight: bold;
-      font-size: 1rem;
+      color: #1e5ea1;
+      font-size: 1.1rem;
     }
-
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 768px) {
       .header-container {
         flex-direction: column;
-        gap: 15px;
+        align-items: flex-start;
       }
-
-      .quick-buttons {
-        order: 2;
-        flex-wrap: wrap;
-      }
-
       .main-nav ul {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
+        padding-top: 15px;
       }
     }
   </style>
 </head>
 <body>
-
   <!-- HEADER -->
   <header class="site-header">
-    <div class="header-container">
-      <!-- Logo -->
-      <div>
-        <a href="/"><img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" /></a>
+    <div class="container header-container">
+      <div class="logo-button-group">
+        <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" />
+        <div class="quick-buttons">
+          <a href="#contact"><img src="https://i.imgur.com/vUdcU1E.png" alt="Icon">Freight Rate</a>
+          <a href="#contact"><img src="https://i.imgur.com/XVZLOSE.png" alt="Icon">Auto shipping rate</a>
+          <a href="#contact"><img src="https://i.imgur.com/Ph0i6mB.png" alt="Icon">Call Us</a>
+        </div>
       </div>
-
-      <!-- Quick Buttons - Centered -->
-      <div class="quick-buttons">
-        <a href="/#contact"><img src="https://i.imgur.com/vUdcU1E.png" alt="Icon">Freight Rate</a>
-        <a href="/#contact"><img src="https://i.imgur.com/XVZLOSE.png" alt="Icon">Auto shipping rate</a>
-        <a href="/#contact"><img src="https://i.imgur.com/Ph0i6mB.png" alt="Icon">Call Us</a>
-      </div>
-
-      <!-- Nav Menu -->
       <nav class="main-nav">
         <ul>
           <li><a href="/">Home</a></li>
