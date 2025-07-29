@@ -125,26 +125,6 @@
         flex-wrap: wrap;
         margin-top: 10px;
       }
-      .dropdown-wrapper {
-      padding: 40px 20px;
-      text-align: center;
-      background-color: #eef2f7;
-    }
-    .dropdown-wrapper select {
-      padding: 10px;
-      margin: 10px;
-      width: 200px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    .location-result {
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 600px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
       .main-nav ul {
         flex-direction: column;
         gap: 10px;
@@ -225,59 +205,6 @@
       <p>Calle 77B No 57-103 Office 701<br>Barranquilla, Colombia<br>Ethics Line Colombia</p>
     </div>
   </section>
-   <!-- REGION & CITY DROPDOWN FILTER -->
-  <section id="location-app" class="dropdown-wrapper">
-    <h2>Select Location</h2>
-    <div>
-      <select v-model="selectedRegion">
-        <option value="">Select Region (State)</option>
-        <option v-for="(cities, region) in states" :key="region" :value="region">{{ region }}</option>
-      </select>
-      <select v-if="selectedRegion" v-model="selectedCity">
-        <option value="">Select City</option>
-        <option v-for="city in states[selectedRegion]" :key="city">{{ city }}</option>
-      </select>
-    </div>
-    <div v-if="selectedRegion && selectedCity" class="location-result">
-      <h3>Location Selected</h3>
-      <p><strong>State:</strong> {{ selectedRegion }}</p>
-      <p><strong>City:</strong> {{ selectedCity }}</p>
-    </div>
-  </section>
-
-  <script>
-    new Vue({
-      el: '#location-app',
-      data: {
-        selectedRegion: '',
-        selectedCity: '',
-        states: {
-          "Alabama": ["Birmingham", "Montgomery", "Huntsville"],
-          "Alaska": ["Anchorage", "Juneau", "Fairbanks"],
-          "Arizona": ["Phoenix", "Tucson", "Scottsdale"],
-          "California": ["Los Angeles", "San Francisco", "San Diego"],
-          "Colorado": ["Denver", "Boulder", "Aurora"],
-          "Florida": ["Miami", "Orlando", "Tampa"],
-          "Georgia": ["Atlanta", "Savannah", "Macon"],
-          "Illinois": ["Chicago", "Springfield", "Naperville"],
-          "Indiana": ["Indianapolis", "Fort Wayne", "Evansville"],
-          "Massachusetts": ["Boston", "Cambridge", "Worcester"],
-          "Michigan": ["Detroit", "Grand Rapids", "Ann Arbor"],
-          "Missouri": ["St. Louis", "Kansas City", "Springfield"],
-          "Nevada": ["Las Vegas", "Reno", "Henderson"],
-          "New York": ["New York City", "Buffalo", "Rochester"],
-          "North Carolina": ["Charlotte", "Raleigh", "Durham"],
-          "Ohio": ["Columbus", "Cleveland", "Cincinnati"],
-          "Pennsylvania": ["Philadelphia", "Pittsburgh", "Harrisburg"],
-          "Tennessee": ["Nashville", "Memphis", "Knoxville"],
-          "Texas": ["Houston", "Dallas", "Austin"],
-          "Virginia": ["Richmond", "Virginia Beach", "Norfolk"],
-          "Washington": ["Seattle", "Tacoma", "Spokane"],
-          "Wisconsin": ["Milwaukee", "Madison", "Green Bay"]
-        }
-      }
-    });
-  </script>
 
   <!-- MAP SECTION -->
   <div class="map-container">
