@@ -172,34 +172,29 @@
     }
     .quick-buttons {
       display: flex;
-      gap: 10px;
+      gap: 15px;
       margin-left: 20px;
     }
-
     .quick-buttons a {
-      background-color: #0548a0;
-      color: white;
-      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      background-color: #1e5ea1;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.9rem;
       font-weight: bold;
+      font-size: 0.95rem;
     }
-
-    @media screen and (max-width: 768px) {
-      .quick-buttons {
-        flex-wrap: wrap;
-        margin-top: 10px;
-      }
-
-      .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .main-nav ul {
-        flex-direction: column;
-        gap: 10px;
+    .quick-buttons a img {
+      height: 20px;
+      margin-right: 8px;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
   </style>
 </head>
