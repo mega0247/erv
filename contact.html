@@ -233,13 +233,11 @@
         <option value="">Select Region (State)</option>
         <option v-for="(cities, region) in states" :key="region" :value="region">{{ region }}</option>
       </select>
-
       <select v-if="selectedRegion" v-model="selectedCity">
         <option value="">Select City</option>
         <option v-for="city in states[selectedRegion]" :key="city">{{ city }}</option>
       </select>
     </div>
-
     <div v-if="selectedRegion && selectedCity" class="location-result">
       <h3>Location Selected</h3>
       <p><strong>State:</strong> {{ selectedRegion }}</p>
@@ -254,25 +252,27 @@
         selectedRegion: '',
         selectedCity: '',
         states: {
-          "California": ["Los Angeles", "San Francisco", "San Diego"],
-          "Texas": ["Houston", "Dallas", "Austin"],
-          "Florida": ["Miami", "Orlando", "Tampa"],
-          "New York": ["New York City", "Buffalo", "Rochester"],
-          "Illinois": ["Chicago", "Springfield", "Naperville"],
-          "Georgia": ["Atlanta", "Savannah", "Macon"],
-          "Washington": ["Seattle", "Tacoma", "Spokane"],
-          "Colorado": ["Denver", "Boulder", "Aurora"],
-          "Nevada": ["Las Vegas", "Reno", "Henderson"],
+          "Alabama": ["Birmingham", "Montgomery", "Huntsville"],
+          "Alaska": ["Anchorage", "Juneau", "Fairbanks"],
           "Arizona": ["Phoenix", "Tucson", "Scottsdale"],
+          "California": ["Los Angeles", "San Francisco", "San Diego"],
+          "Colorado": ["Denver", "Boulder", "Aurora"],
+          "Florida": ["Miami", "Orlando", "Tampa"],
+          "Georgia": ["Atlanta", "Savannah", "Macon"],
+          "Illinois": ["Chicago", "Springfield", "Naperville"],
+          "Indiana": ["Indianapolis", "Fort Wayne", "Evansville"],
+          "Massachusetts": ["Boston", "Cambridge", "Worcester"],
+          "Michigan": ["Detroit", "Grand Rapids", "Ann Arbor"],
+          "Missouri": ["St. Louis", "Kansas City", "Springfield"],
+          "Nevada": ["Las Vegas", "Reno", "Henderson"],
+          "New York": ["New York City", "Buffalo", "Rochester"],
+          "North Carolina": ["Charlotte", "Raleigh", "Durham"],
           "Ohio": ["Columbus", "Cleveland", "Cincinnati"],
           "Pennsylvania": ["Philadelphia", "Pittsburgh", "Harrisburg"],
-          "North Carolina": ["Charlotte", "Raleigh", "Durham"],
-          "Michigan": ["Detroit", "Grand Rapids", "Ann Arbor"],
-          "Massachusetts": ["Boston", "Cambridge", "Worcester"],
-          "Virginia": ["Richmond", "Virginia Beach", "Norfolk"],
           "Tennessee": ["Nashville", "Memphis", "Knoxville"],
-          "Missouri": ["St. Louis", "Kansas City", "Springfield"],
-          "Indiana": ["Indianapolis", "Fort Wayne", "Evansville"],
+          "Texas": ["Houston", "Dallas", "Austin"],
+          "Virginia": ["Richmond", "Virginia Beach", "Norfolk"],
+          "Washington": ["Seattle", "Tacoma", "Spokane"],
           "Wisconsin": ["Milwaukee", "Madison", "Green Bay"]
         }
       }
