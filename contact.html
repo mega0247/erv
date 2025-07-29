@@ -15,9 +15,6 @@
   <meta property="og:image" content="https://i.imgur.com/UCugV24.png">
   <meta property="og:url" content="https://wildeweswoolery.com/contact">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue-select@latest"></script>
-  <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
   <style>
     .hero-contact {
       position: relative;
@@ -80,11 +77,13 @@
       border: none;
       border-radius: 10px;
     }
+
     .quick-buttons {
       display: flex;
       gap: 10px;
       margin-left: 20px;
     }
+
     .quick-buttons a {
       background-color: #0548a0;
       color: white;
@@ -94,6 +93,7 @@
       font-size: 0.9rem;
       font-weight: bold;
     }
+
     .header-container {
       display: flex;
       align-items: center;
@@ -101,6 +101,7 @@
       flex-wrap: wrap;
       padding: 10px 20px;
     }
+
     .main-nav ul {
       list-style: none;
       display: flex;
@@ -108,11 +109,13 @@
       padding: 0;
       margin: 0;
     }
+
     .main-nav a {
       text-decoration: none;
       font-weight: bold;
       color: #333;
     }
+
     @media screen and (max-width: 768px) {
       .header-container {
         flex-direction: column;
@@ -122,6 +125,26 @@
         flex-wrap: wrap;
         margin-top: 10px;
       }
+      .dropdown-wrapper {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #eef2f7;
+    }
+    .dropdown-wrapper select {
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .location-result {
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
       .main-nav ul {
         flex-direction: column;
         gap: 10px;
@@ -130,14 +153,20 @@
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-container">
       <img src="https://i.imgur.com/UCugV24.png" alt="Earth Blue Relocation Logo" class="logo" style="height:90px; max-width: 100%; object-fit: contain;" />
+      
+      <!-- Quick Buttons -->
       <div class="quick-buttons">
         <a href="/#contact">Freight Rate</a>
         <a href="/#contact">Auto shipping rate</a>
         <a href="/#contact">Call Us</a>
       </div>
+      
+      <!-- Navigation -->
       <nav class="main-nav">
         <ul>
           <li><a href="/">Home</a></li>
@@ -148,6 +177,8 @@
       </nav>
     </div>
   </header>
+
+  <!-- HERO IMAGE -->
   <section class="hero-contact">
     <img src="https://i.imgur.com/W5JXwGS.png" alt="Contact Hero Image">
     <div class="overlay">
@@ -155,6 +186,8 @@
       <p>We’re here to help you and answer any questions you may have.</p>
     </div>
   </section>
+
+  <!-- INFO SECTION -->
   <section class="info-section">
     <h1>Ship with Us</h1>
     <p>We handle all your international transportation needs with responsibility and professionalism.</p>
@@ -167,13 +200,13 @@
     <h3>CAREER OPPORTUNITIES</h3>
     <p>Interested in joining the Earth Blue Relocation team? Explore our exciting career opportunities.</p>
   </section>
+
+  <!-- IMAGE -->
   <div style="text-align:center; padding: 20px;">
     <img src="https://i.imgur.com/lhUMPaN.png" alt="Contact Us Banner" style="width:100%; max-width:1000px; border-radius:10px;" />
   </div>
-  <div id="app" style="padding: 20px; text-align:center">
-    <v-select v-model="selectedRegion" :options="regions" placeholder="Select a region"></v-select>
-    <v-select v-model="selectedCity" :options="filteredCities" placeholder="Select a city" style="margin-top:10px"></v-select>
-  </div>
+
+  <!-- ADDRESS SECTION -->
   <section class="address-grid">
     <div class="address-box">
       <h3>Corporate Office - California</h3>
@@ -192,9 +225,66 @@
       <p>Calle 77B No 57-103 Office 701<br>Barranquilla, Colombia<br>Ethics Line Colombia</p>
     </div>
   </section>
+   <!-- REGION & CITY DROPDOWN FILTER -->
+  <section id="location-app" class="dropdown-wrapper">
+    <h2>Select Location</h2>
+    <div>
+      <select v-model="selectedRegion">
+        <option value="">Select Region (State)</option>
+        <option v-for="(cities, region) in states" :key="region" :value="region">{{ region }}</option>
+      </select>
+
+      <select v-if="selectedRegion" v-model="selectedCity">
+        <option value="">Select City</option>
+        <option v-for="city in states[selectedRegion]" :key="city">{{ city }}</option>
+      </select>
+    </div>
+
+    <div v-if="selectedRegion && selectedCity" class="location-result">
+      <h3>Location Selected</h3>
+      <p><strong>State:</strong> {{ selectedRegion }}</p>
+      <p><strong>City:</strong> {{ selectedCity }}</p>
+    </div>
+  </section>
+
+  <script>
+    new Vue({
+      el: '#location-app',
+      data: {
+        selectedRegion: '',
+        selectedCity: '',
+        states: {
+          "California": ["Los Angeles", "San Francisco", "San Diego"],
+          "Texas": ["Houston", "Dallas", "Austin"],
+          "Florida": ["Miami", "Orlando", "Tampa"],
+          "New York": ["New York City", "Buffalo", "Rochester"],
+          "Illinois": ["Chicago", "Springfield", "Naperville"],
+          "Georgia": ["Atlanta", "Savannah", "Macon"],
+          "Washington": ["Seattle", "Tacoma", "Spokane"],
+          "Colorado": ["Denver", "Boulder", "Aurora"],
+          "Nevada": ["Las Vegas", "Reno", "Henderson"],
+          "Arizona": ["Phoenix", "Tucson", "Scottsdale"],
+          "Ohio": ["Columbus", "Cleveland", "Cincinnati"],
+          "Pennsylvania": ["Philadelphia", "Pittsburgh", "Harrisburg"],
+          "North Carolina": ["Charlotte", "Raleigh", "Durham"],
+          "Michigan": ["Detroit", "Grand Rapids", "Ann Arbor"],
+          "Massachusetts": ["Boston", "Cambridge", "Worcester"],
+          "Virginia": ["Richmond", "Virginia Beach", "Norfolk"],
+          "Tennessee": ["Nashville", "Memphis", "Knoxville"],
+          "Missouri": ["St. Louis", "Kansas City", "Springfield"],
+          "Indiana": ["Indianapolis", "Fort Wayne", "Evansville"],
+          "Wisconsin": ["Milwaukee", "Madison", "Green Bay"]
+        }
+      }
+    });
+  </script>
+
+  <!-- MAP SECTION -->
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13264.57332670549!2d-118.07949239999999!3d33.94723545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2cb08e3a9f4b%3A0x3e1173c1e8b89f2e!2s8731%20Pioneer%20Blvd%2C%20Santa%20Fe%20Springs%2C%20CA%2090670!5e0!3m2!1sen!2us!4v1628233085681!5m2!1sen!2us" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13264.57332670549!2d-118.07949239999999!3d33.94723545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2cb08e3a9f4b%3A0x3e1173c1e8b89f2e!2s8731%20Pioneer%20Blvd%2C%20Santa%20Fe%20Springs%2C%20CA%2090670!5e0!3m2!1sen!2sus!4v1628233085681!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
   </div>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <p>All liabilities pertaining to the transportation of goods are the sole responsibility of the motor carrier, and they are legally bound in the event of any accidents or claims.</p>
@@ -204,26 +294,6 @@
       </p>
     </div>
   </footer>
-  <script>
-    new Vue({
-      el: '#app',
-      components: { 'v-select': VueSelect.VueSelect },
-      data: {
-        regions: ['California', 'Florida', 'Texas'],
-        citiesByRegion: {
-          California: ['Los Angeles', 'San Diego'],
-          Florida: ['Miami', 'Orlando'],
-          Texas: ['Dallas', 'Houston']
-        },
-        selectedRegion: null,
-        selectedCity: null
-      },
-      computed: {
-        filteredCities() {
-          return this.selectedRegion ? this.citiesByRegion[this.selectedRegion] : [];
-        }
-      }
-    });
-  </script>
+
 </body>
 </html>
