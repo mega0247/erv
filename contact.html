@@ -196,43 +196,101 @@
     </div>
   </section>
 
-  <!-- LOCATION FILTER DROPDOWNS -->
-  <section class="module-contact-locations-content" aria-label="All our locations">
+    <!-- REGION & CITY FILTER SECTION -->
+  <div id="location-app" class="info-section" style="background: #fff;">
     <div class="container">
-      <div id="app" class="contact-locations">
-        <div class="contact-locations__filters">
-          <div class="row row-2-cols">
-            <div class="col">
-              <select-dropdown
-                :options="availableFilterOptions('region')"
-                :last-filter="lastFilter"
-                name="filter-region"
-                id="filter-region"
-                css-class="contact-select"
-                title="All Regions"
-                aria-label="Search team by region"
-                v-model="activeFilters.region"
-                v-on:update:last-filter="lastFilter = 'region'">
-              </select-dropdown>
-            </div>
-            <div class="col">
-              <select-dropdown
-                :options="availableFilterOptions('city')"
-                :last-filter="lastFilter"
-                name="filter-city"
-                id="filter-city"
-                css-class="contact-select"
-                title="All Cities"
-                aria-label="Search team by city"
-                v-model="activeFilters.city"
-                v-on:update:last-filter="lastFilter = 'city'">
-              </select-dropdown>
-            </div>
-          </div>
+      <h2 style="margin-bottom: 20px;">Find Our U.S. Locations</h2>
+
+      <div class="contact-locations__filters" style="margin-bottom: 30px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+          <select v-model="activeRegion" class="contact-select" aria-label="Search team by region">
+            <option value="">All Regions</option>
+            <option v-for="region in availableRegions" :key="region" :value="region">{{ region }}</option>
+          </select>
+
+          <select v-model="activeCity" class="contact-select" aria-label="Search team by city">
+            <option value="">All Cities</option>
+            <option v-for="city in availableCities" :key="city" :value="city">{{ city }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div v-for="(group, region) in filteredLocations" :key="region" class="address-grid">
+        <div class="address-box" v-for="loc in group" :key="loc.city">
+          <h3>{{ loc.city }}</h3>
+          <p v-html="loc.address"></p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- Vue and Script Section -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#location-app',
+      data: {
+        activeRegion: '',
+        activeCity: '',
+        locations: {
+          'West Coast': [
+            { city: 'Los Angeles', address: '8731 Pioneer Blvd<br>Santa Fe Springs, CA 90670' },
+            { city: 'San Francisco', address: '123 Market St<br>San Francisco, CA 94103' }
+          ],
+          'East Coast': [
+            { city: 'New York', address: '500 5th Ave<br>New York, NY 10036' },
+            { city: 'Miami', address: '6500 N Powerline Rd<br>Pompano Beach, FL 33073' }
+          ],
+          'Midwest': [
+            { city: 'Chicago', address: '200 W Madison St<br>Chicago, IL 60606' }
+          ]
+        }
+      },
+      computed: {
+        availableRegions() {
+          return Object.keys(this.locations);
+        },
+        availableCities() {
+          const allCities = [];
+          for (const region in this.locations) {
+            for (const loc of this.locations[region]) {
+              if (!this.activeRegion || region === this.activeRegion) {
+                allCities.push(loc.city);
+              }
+            }
+          }
+          return allCities;
+        },
+        filteredLocations() {
+          const filtered = {};
+          for (const [region, locs] of Object.entries(this.locations)) {
+            if (this.activeRegion && region !== this.activeRegion) continue;
+            const matches = locs.filter(loc => !this.activeCity || loc.city === this.activeCity);
+            if (matches.length) filtered[region] = matches;
+          }
+          return filtered;
+        }
+      }
+    });
+  </script>
+
+  <style>
+    .contact-select {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      min-width: 200px;
+    }
+
+    .contact-locations__filters {
+      margin-bottom: 20px;
+    }
+
+    .address-grid {
+      margin-top: 20px;
+    }
+  </style>
 
   <!-- MAP SECTION -->
   <div class="map-container">
