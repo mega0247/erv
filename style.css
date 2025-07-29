@@ -273,45 +273,6 @@ body {
   line-height: 1.5;
 }
 
-/* Contact Select Filters */
-.contact-locations__filters {
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
-
-.contact-locations__filters label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 8px;
-  text-align: left;
-}
-
-.contact-select {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  background-color: #fff;
-  color: #333;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg fill='%23666' height='10' width='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 12px;
-}
-
-.row.row-2-cols {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.row.row-2-cols .col {
-  flex: 1;
-  min-width: 250px;
-}
-
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .hero h1 {
@@ -329,9 +290,5 @@ body {
 
   .logo {
     height: 70px;
-  }
-
-  .row.row-2-cols {
-    flex-direction: column;
   }
 }
