@@ -239,65 +239,33 @@
     </div>
   </section>
 
-  <!-- FILTER DROPDOWN SECTION -->
-  <section class="module-contact-locations-content" aria-label="All our locations">
-    <div class="container">
-      <div id="app" class="contact-locations">
-        <div class="contact-locations__filters">
-          <div class="row row-2-cols">
-            <div class="col">
-              <select-dropdown
-                :options="availableFilterOptions('region')"
-                :last-filter="lastFilter"
-                name="filter-region" 
-                id="filter-region"
-                css-class="contact-select"
-                title="All Regions"
-                aria-label="Search team by region"
-                v-model="activeFilters.region"
-                v-on:update:last-filter="lastFilter = 'region'">
-              </select-dropdown>
-            </div>
-            <div class="col">
-              <select-dropdown
-                :options="availableFilterOptions('city')"
-                :last-filter="lastFilter"
-                name="filter-city" 
-                id="filter-city"
-                css-class="contact-select"
-                title="All Cities"
-                aria-label="Search team by city"
-                v-model="activeFilters.city"
-                v-on:update:last-filter="lastFilter = 'city'">
-              </select-dropdown>
-            </div>
-          </div>
+<!-- FILTER DROPDOWN SECTION -->
+<section class="module-contact-locations-content" aria-label="All our locations">
+  <div class="container">
+    <div class="contact-locations__filters">
+      <div class="row row-2-cols">
+        <div class="col">
+          <select name="filter-region" class="contact-select">
+            <option value="">All Regions</option>
+            <option value="california">California</option>
+            <option value="florida">Florida</option>
+            <option value="canada">Canada</option>
+            <option value="colombia">Colombia</option>
+          </select>
         </div>
-        <div class="contact-locations__content">
-          <div v-for="(locations, regionName) in activeLocationGroups" :key="regionName">
-            <div class="contact-location" v-for="location in locations" :key="location.city">
-              <header class="contact-location__header">
-                <h3 v-html="regionName"></h3>
-                <div class="text">
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <h4>{{ location.city }}</h4>
-                    </div>
-                    <div class="col-lg-4">
-                      <div v-html="location.address"></div>
-                    </div>
-                    <div class="col-lg-4">
-                      <p v-html="location.contact_info"></p>
-                    </div>
-                  </div>
-                </div>
-              </header>
-            </div>
-          </div>
+        <div class="col">
+          <select name="filter-city" class="contact-select">
+            <option value="">All Cities</option>
+            <option value="los-angeles">Los Angeles</option>
+            <option value="miami">Miami</option>
+            <option value="brampton">Brampton</option>
+            <option value="barranquilla">Barranquilla</option>
+          </select>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- MAP SECTION -->
   <div class="map-container">
